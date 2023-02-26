@@ -4,11 +4,12 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
 employees = [
-    {'id': 1, 'firstName': 'John', 'lastName': 'Doe', 'emailId': 'johndoe@example.com'},
-    {'id': 2, 'firstName': 'Jane', 'lastName': 'Smith', 'emailId': 'janesmith@example.com'},
-    {'id': 3, 'firstName': 'Bob', 'lastName': 'Johnson', 'emailId': 'bobjohnson@example.com'}
-]
+        {'id': 1, 'firstName': 'Sanchez', 'lastName': 'Alexis', 'emailId': 'alxissanchez@example.com'},
+        {'id': 2, 'firstName': 'Dimitry', 'lastName': 'Payet', 'emailId': 'dimitrypayet@example.com'},
+        {'id': 3, 'firstName': 'Johnatan', 'lastName': 'Clauss', 'emailId': 'johnatanclauss@example.com'}
+    ]
 
 @app.route('/api/v1/employees', methods=['GET'])
 def get_employees():
@@ -20,6 +21,7 @@ def add_employee():
     new_employee['id'] = len(employees) + 1
     employees.append(new_employee)
     return jsonify(new_employee), 201
+
 
 @app.route('/api/v1/employees/<int:employee_id>', methods=['DELETE'])
 def delete_employee(employee_id):
@@ -39,3 +41,6 @@ def update_employee(employee_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
